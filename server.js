@@ -14,18 +14,15 @@ app.use(bodyParser.json());
 
 app.use('/products', productRoutes);
 
-
 const MONGODB_URI ='mongodb://localhost:27017/test';
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  }); 
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.error('MongoDB connection error:', error));
 
- 
   const server = app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     console.log('connected to mongoDB')

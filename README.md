@@ -1,5 +1,5 @@
 # e-commerce
-
+install necessary package express,mongoose,body-parser,jest,supertest nodemon
 # Product API
 
 The Product API allows you to manage products and their variants. You can create, update, delete, and retrieve products using the provided endpoints. Each product can have multiple variants with additional details such as SKU, cost, and stock count.

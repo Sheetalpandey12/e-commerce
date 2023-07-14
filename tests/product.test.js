@@ -38,9 +38,7 @@ describe('Product API', () => {
     }; 
 
     const response = await request(app)
-      .post('/products')
-      .send(productData)
-      .expect(201);
+      .post('/products').send(productData).expect(201);
 
     const createdProduct = await Product.findById(response.body._id);
     expect(createdProduct).toBeTruthy();
@@ -51,5 +49,5 @@ describe('Product API', () => {
     expect(createdProduct.variants[0].name).toBe(productData.variants[0].name);
   });
 
-  
+  // Write more tests for other endpoints and functionality
 });

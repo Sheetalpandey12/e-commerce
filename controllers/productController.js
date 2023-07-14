@@ -4,12 +4,11 @@ exports.createProduct = async (req, res) => {
   try {
     const product = new Product(req.body);
     await product.save();
-    res.status(201).json(product);     
-  } catch (error) {
-    console.log(error)
+    res.status(201).json(product);      
+  } catch (error) {  
     res.status(500).json({ error: 'Internal Server Error' }); 
   }
-};
+}; 
 
 exports.getAllProducts = async (req, res) => {
   try {
@@ -59,3 +58,75 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
+
+
+// // GET /products/search?query=keyword
+// // GET /products/search?query=keyword
+// exports.productSearch= async (req, res) => {
+//   try {
+//     const { query } = req.query;
+
+//     const products = await Product.find({
+//       $or: [
+//         { name: { $regex: query, $options: 'i' } },
+//         { description: { $regex: query, $options: 'i' } },
+//         { 'variants.name': { $regex: query, $options: 'i' } }
+//       ] 
+//     });
+
+//     res.json(products);
+//   } catch (error) {
+//     console.error('Error searching products:', error);
+//     res.status(500).json({ error: 'Failed to search products' });
+//   }
+// };
+
+
+
+
+// // Search products by name, description, or variant name
+// exports.searchProducts = async (req, res) => {
+//   try {
+//     const { query } = req.query;
+
+//     const products = await Product.find({
+//       $or: [
+//         { name: { $regex: query, $options: 'i' } },
+//         { description: { $regex: query, $options: 'i' } },
+//         { 'variants.name': { $regex: query, $options: 'i' } }
+//       ]
+//     });
+
+//     res.json(products);
+//   } catch (error) {
+//     console.error('Error searching products:', error);
+//     res.status(500).json({ error: 'Failed to search products' });
+//   }
+// };
+
+
+// const Product = require('../models/Product');
+
+// Search products by name, description, or variant name
+// exports.searchProducts = async (req, res, next) => {
+//   try {
+//     const { query } = req.query;
+
+//     const products = await Product.find({
+//       $or: [
+//         { name: { $regex: query, $options: 'i' } },
+//         { description: { $regex: query, $options: 'i' } },
+//         { 'variants.name': { $regex: query, $options: 'i' } }
+//       ]
+//     });
+
+//     res.json(products);
+//   } catch (error) {
+//     next(error);
+//   }
+//}
+
+
+
+
