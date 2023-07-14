@@ -2,8 +2,8 @@ const request = require('supertest');
 const app = require('../server');
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
-//const productRoutes = require('./routes/productRoutes');  
-
+const server = require('../server');
+ 
 describe('Product API', () => {
   beforeAll(async () => {
     await mongoose.connect('mongodb://localhost:27017/test', {
@@ -15,6 +15,7 @@ describe('Product API', () => {
   afterAll(async () => {
     await mongoose.connection.db.dropDatabase();
     await mongoose.connection.close();
+    server.close();
   });
 
   beforeEach(async () => {
@@ -34,7 +35,7 @@ describe('Product API', () => {
           stockCount: 10,
         },
       ],
-    };
+    }; 
 
     const response = await request(app)
       .post('/products')
@@ -50,5 +51,5 @@ describe('Product API', () => {
     expect(createdProduct.variants[0].name).toBe(productData.variants[0].name);
   });
 
-  // Write more tests for other endpoints and functionality
+  
 });

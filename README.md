@@ -204,7 +204,7 @@ Copy code
 2. Install the dependencies using `npm install`.
 3. Start the server using `npm start`.
 4. The API will be available at `http://localhost:3000`.
-5. use "npm test" for test driven development
+5. use `npm test` for test driven development
 
 
 
