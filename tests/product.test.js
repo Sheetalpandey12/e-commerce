@@ -2,7 +2,11 @@ const request = require('supertest');
 const app = require('../server');
 const mongoose = require('mongoose');
 const Product = require('../models/Product');
+const productController = require('../controllers/productController');
 const server = require('../server');
+
+
+// "test": "jest --watchAll"
  
 describe('Product API', () => {
   beforeAll(async () => {
@@ -49,5 +53,5 @@ describe('Product API', () => {
     expect(createdProduct.variants[0].name).toBe(productData.variants[0].name);
   });
 
-  // Write more tests for other endpoints and functionality
+
 });

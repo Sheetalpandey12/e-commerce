@@ -11,7 +11,7 @@ router.get('/read',productController.getProduct);
 router.put('/update/:productId', productController.updateProduct);
 router.delete('/delete/:productId', productController.deleteProduct);
 
-router.get('/search', productController.searchdata);
+router.get('/search', productController.searchProducts);
          
 
 module.exports = router; 
