@@ -5,14 +5,14 @@ const Product = require('../models/Product');
 
   
 
-router.post('/', productController.createProduct);
-router.get('/', productController.getAllProducts);
-router.get('/:productId', productController.getProduct);
-router.put('/:productId', productController.updateProduct);
-router.delete('/:productId', productController.deleteProduct);
-//router.get('/search', productController.searchProducts);
+router.post('/create', productController.createProduct);
+router.get('/readall', productController.getAllProducts);
+router.get('/read',productController.getProduct);
+router.put('/update/:productId', productController.updateProduct);
+router.delete('/delete/:productId', productController.deleteProduct);
 
-     
+router.get('/search', productController.searchdata);
+         
 
 module.exports = router; 
 

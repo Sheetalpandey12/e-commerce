@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.use('/products', productRoutes);
+app.use('/', productRoutes);
 
 const MONGODB_URI ='mongodb://localhost:27017/test';
 

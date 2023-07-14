@@ -38,7 +38,7 @@ describe('Product API', () => {
     }; 
 
     const response = await request(app)
-      .post('/products').send(productData).expect(201);
+      .post('/create').send(productData).expect(201);
 
     const createdProduct = await Product.findById(response.body._id);
     expect(createdProduct).toBeTruthy();
