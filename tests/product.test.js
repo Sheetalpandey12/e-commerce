@@ -6,7 +6,7 @@ const productController = require('../controllers/productController');
 const server = require('../server');
 
 
-// "test": "jest --watchAll"
+
  
 describe('Product API', () => {
   beforeAll(async () => {
